@@ -1,0 +1,11 @@
+# dependencies
+/node_modules
+
+# production
+/build
+
+#API KEY
+.env
+
+#generating campground data
+/seeds
