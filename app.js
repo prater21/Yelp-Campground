@@ -91,7 +91,8 @@ app.use('/campgrounds/:id/reviews', reviewsRoutes);
 
 
 app.get('/', (req, res) => {
-    res.redirect("/campgrounds");
+    res.send("halo")
+    // res.redirect("/campgrounds");
 })
 
 
@@ -106,6 +107,6 @@ app.use((err, req, res, next) => {
     res.status(statusCode).render('error', { err });
 })
 
-app.listen(3000, () => {
+app.listen(process.env.PORT || 3000, () => {
     console.log('Connected')
 })
