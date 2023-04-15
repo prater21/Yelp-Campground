@@ -9,3 +9,6 @@
 
 #generating campground data
 /seeds
+
+#get image data from cloudinary
+/cloudinary
