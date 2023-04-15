@@ -5,12 +5,14 @@ if (process.env.NODE_ENV !== 'production') {
 const express = require('express');
 const path = require('path');
 const mongoose = require('mongoose');
+const MongoStore = require('connect-mongo');
 const ejsMate = require('ejs-mate');
 const session = require('express-session');
 const flash = require('connect-flash');
 const passport = require('passport');
 const LocalStrategy = require('passport-local');
 const User = require('./models/user');
+const dbUrl = process.env.DB_URL;
 
 const ExpressError = require('./utils/ExpressError');
 const methodOverride = require('method-override');
@@ -21,7 +23,8 @@ const userRoutes = require('./routes/users');
 
 //connect mongoose
 mongoose.set('strictQuery', true);
-mongoose.connect('mongodb://127.0.0.1:27017/yelp-camp', {
+// 'mongodb://127.0.0.1:27017/yelp-camp'
+mongoose.connect(dbUrl, {
     useNewUrlParser: true,
     useUnifiedTopology: true
 });
@@ -46,8 +49,18 @@ app.use(methodOverride('_method'))
 //to use stastic files
 app.use(express.static(path.join(__dirname, 'public')));
 
+const store = new MongoStore({
+    mongoUrl: dbUrl,
+    secret: 'thisissecret!',
+    touchAfter: 24 * 3600
+})
+store.on("error", function (e) {
+    console.log("session store error", e)
+})
+
 //session
 const sessionConfig = {
+    store,
     secret: "secret",
     resave: false,
     saveUninitialized: true,
@@ -105,6 +118,6 @@ app.use((err, req, res, next) => {
     res.status(statusCode).render('error', { err });
 })
 
-app.listen(8000, () => {
+app.listen(3000, () => {
     console.log('Connected')
 })
