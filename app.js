@@ -15,7 +15,6 @@ const User = require('./models/user');
 const ExpressError = require('./utils/ExpressError');
 const methodOverride = require('method-override');
 
-
 const campgroundsRoutes = require('./routes/campgrounds');
 const reviewsRoutes = require('./routes/reviews');
 const userRoutes = require('./routes/users');
@@ -91,8 +90,7 @@ app.use('/campgrounds/:id/reviews', reviewsRoutes);
 
 
 app.get('/', (req, res) => {
-    res.send("halo")
-    // res.redirect("/campgrounds");
+    res.redirect("/campgrounds");
 })
 
 
@@ -107,6 +105,6 @@ app.use((err, req, res, next) => {
     res.status(statusCode).render('error', { err });
 })
 
-app.listen(process.env.PORT, () => {
+app.listen(8000, () => {
     console.log('Connected')
 })
