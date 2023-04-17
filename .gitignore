@@ -10,5 +10,5 @@
 #generating campground data
 /seeds
 
-#get image data from cloudinary
-/cloudinary
+# #get image data from cloudinary
+# /cloudinary
