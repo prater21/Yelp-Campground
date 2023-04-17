@@ -1,9 +1,9 @@
 <% layout('layouts/boilerplate') %>
   <link rel="stylesheet" href="/stylesheets/stars.css">
+  <link rel="stylesheet" href="/stylesheets/show.css">
 
-
-  <div class="row mb-3 ">
-    <div class="col-6">
+  <div class="row mb-3 show__container">
+    <div class="col-6 show__campground">
       <div class="card">
         <div id="campgorundCarousel" class="carousel slide">
           <div class="carousel-inner">
@@ -50,7 +50,7 @@
           <% } %>
       </div>
     </div>
-    <div class="col-6">
+    <div class="col-6 show__campground">
       <h2>Leave a review</h2>
       <form action="/campgrounds/<%= campground._id %>/reviews" class="mb-3 validated-form" method="POST" novalidate>
         <div class="mb-3">
