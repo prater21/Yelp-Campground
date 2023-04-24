@@ -1,14 +1,16 @@
-//review model schema 설정
+/**
+ * review model schema setting
+ */
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-//making schema
+// review model schema
 const reviewSchema = new Schema({
     body: String,
     rating: Number,
-    author:{
+    author: {
         type: Schema.Types.ObjectId,
-         ref: 'User'
+        ref: 'User'
     }
 });
 

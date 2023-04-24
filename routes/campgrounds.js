@@ -1,3 +1,6 @@
+/**
+ * campgrounds routes
+ */
 const express = require('express');
 const router = express.Router();
 const Campground = require('../models/campground');
@@ -40,6 +43,7 @@ router.get('/:id', async (req, res) => {
     }
     res.render('campgrounds/show', { campground });
 })
+
 //edit campground form submit
 router.put('/:id', isLoggedIn, isAuthor, upload.array('image'), validateCampgrond, async (req, res) => {
     const { id } = req.params;
@@ -50,6 +54,7 @@ router.put('/:id', isLoggedIn, isAuthor, upload.array('image'), validateCampgron
     req.flash('success', 'Successfully updated campground!');
     res.redirect(`/campgrounds/${id}`);
 })
+
 //delete campground
 router.delete(isLoggedIn, isAuthor, async (req, res) => {
     const { id } = req.params;

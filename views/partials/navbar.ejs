@@ -1,3 +1,4 @@
+<!-- navbar -->
 <nav class="navbar navbar-dark bg-dark navbar-expand-lg bg-body-tertiary sticky-top " data-bs-theme="dark">
   <div class="container-fluid">
     <a class="navbar-brand" href="/campgrounds">YelpCamp</a>
@@ -7,14 +8,19 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarNavDropdown">
       <div class="navbar-nav">
+        <!-- home -->
         <a class="nav-link active" aria-current="page" href="/campgrounds">Home</a>
+        <!--new campgorund -->
         <a class="nav-link" href="/campgrounds/new">New Campgorund</a>
       </div>
       <div class="navbar-nav ms-auto">
         <% if(!currentUser) { %>
+          <!-- login -->
           <a class="nav-link" href="/login">Login</a>
+          <!-- register -->
           <a class="nav-link" href="/register">Register</a>
           <% } else { %>
+            <!-- logout -->
             <a class="nav-link" href="/logout">Logout</a>
             <% } %>
       </div>

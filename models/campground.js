@@ -1,21 +1,23 @@
-//campground model schema 설정
+/**
+ *  campground model schema setting
+ */
 const mongoose = require('mongoose');
 const Review = require('./review');
 const Schema = mongoose.Schema;
 
-//making schema
+// campground model schema
 const CampgroundSchema = new Schema({
     title: String,
-    images:[{
-        url:String,
+    images: [{
+        url: String,
         filename: String
     }],
     price: Number,
     description: String,
     location: String,
-    author:{
+    author: {
         type: Schema.Types.ObjectId,
-        ref:'User'
+        ref: 'User'
     },
     reviews: [
         {

@@ -1,13 +1,17 @@
+/**
+* users routes
+*/
 const express = require('express');
 const router = express.Router();
 const passport = require('passport');
 const User = require('../models/user');
 
-
+//go to register page
 router.get('/register', (req, res) => {
     res.render('users/register');
 })
 
+//register user
 router.post('/register', async (req, res, next) => {
     try {
         const { email, username, password } = req.body;
@@ -25,10 +29,12 @@ router.post('/register', async (req, res, next) => {
 
 });
 
+//go to login page
 router.get('/login', (req, res) => {
     res.render('users/login');
 })
 
+//login
 router.post('/login', passport.authenticate('local', { keepSessionInfo: true, failureFlash: true, failureRedirect: '/login' }), (req, res) => {
     req.flash('success', 'Welcome back');
     const redirectUrl = req.session.returnTo || '/campgrounds';
@@ -36,6 +42,8 @@ router.post('/login', passport.authenticate('local', { keepSessionInfo: true, fa
     res.redirect(redirectUrl);
 })
 
+
+//logout
 router.get('/logout', (req, res) => {
     req.logout(function (err) {
         if (err) { return next(err); }

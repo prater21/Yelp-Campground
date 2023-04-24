@@ -1,3 +1,4 @@
+<!-- campground detail -->
 <% layout('layouts/boilerplate') %>
   <link rel="stylesheet" href="/stylesheets/stars.css">
   <link rel="stylesheet" href="/stylesheets/show.css">
@@ -5,6 +6,8 @@
   <div class="row mb-3 show__container">
     <div class="col-6 show__campground">
       <div class="card">
+
+        <!-- campground images -->
         <div id="campgorundCarousel" class="carousel slide">
           <div class="carousel-inner">
             <% campground.images.forEach((img, i)=> { %>
@@ -13,7 +16,6 @@
               </div>
               <% }) %>
           </div>
-
           <button class="carousel-control-prev" type="button" data-bs-target="#campgorundCarousel" data-bs-slide="prev">
             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
             <span class="visually-hidden">Previous</span>
@@ -22,24 +24,36 @@
             <span class="carousel-control-next-icon" aria-hidden="true"></span>
             <span class="visually-hidden">Next</span>
           </button>
-
         </div>
+
         <div class="card-body">
+          <!-- campground title -->
           <h5 class="card-title">
             <%=campground.title %>
           </h5>
+
+          <!-- campground description -->
           <p class="card-text">
             <%=campground.description %>
           </p>
         </div>
+
         <ul class="list-group list-group-flush">
+          <!-- campground description -->
           <li class="list-group-item">
             <%=campground.location %>
           </li>
-          <li class="list-group-item">By <%=campground.author.username %>
+          <!-- campground username -->
+          <li class="list-group-item">
+            By <%=campground.author.username %>
           </li>
-          <li class="list-group-item">$<%=campground.price %>/night</li>
+          <!-- campground price -->
+          <li class="list-group-item">
+            $<%=campground.price %>/night
+          </li>
         </ul>
+
+        <!-- edit button -->
         <% if(currentUser && campground.author.equals(currentUser)){ %>
           <div class="card-body">
             <a href="/campgrounds/<%=campground._id %>/edit" class="card-link btn btn-primary ">Edit</a>
@@ -50,10 +64,14 @@
           <% } %>
       </div>
     </div>
+
+    <!-- reviews -->
     <div class="col-6 show__campground">
       <h2>Leave a review</h2>
+      <!-- review form -->
       <form action="/campgrounds/<%= campground._id %>/reviews" class="mb-3 validated-form" method="POST" novalidate>
         <div class="mb-3">
+          <!-- rating stars -->
           <fieldset class="starability-basic">
             <legend>Rating:</legend>
             <input type="radio" id="no-rate" class="input-no-rate" name="review[rating]" value="1" checked
@@ -70,6 +88,7 @@
             <label for="first-rate5" title="Amazing">5 stars</label>
           </fieldset>
         </div>
+        <!-- review body -->
         <% if(!currentUser){ %>
           <div class="mb-3">
             <label class="form-label" for="body">Review</label>
@@ -85,17 +104,23 @@
             <% }%>
       </form>
 
+      <!-- show existing reviews -->
       <% for(let review of campground.reviews){%>
         <div class="card mb-3">
           <div class="card-body">
+            <!-- review body -->
             <h5 class="card-text">
               <%= review.body %>
             </h5>
+            <!-- review rating -->
             <p class="starability-result" data-rating="<%= review.rating %>">
               Rated: <%= review.rating %> stars
             </p>
-            <h6 class="card-subtitle mb-2 text-muted">by <%= review.author.username %>
+            <!-- review username -->
+            <h6 class="card-subtitle mb-2 text-muted">
+              by <%= review.author.username %>
             </h6>
+            <!-- review delete button -->
             <% if(currentUser && review.author.equals(currentUser._id)) { %>
               <form action="/campgrounds/<%= campground._id %>/reviews/<%= review._id %>?_method=DELETE " method="POST">
                 <button class="btn btn-sm btn-danger"> Delete</button>

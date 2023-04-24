@@ -1,24 +1,31 @@
+<!-- campground edit -->
+
 <% layout('layouts/boilerplate') %>
     <div class="row">
         <h1 class="text-center">Edit Campground</h1>
         <div class="col-8 offset-2">
+            <!-- edit form -->
             <form action="/campgrounds/<%= campground._id %>?_method=PUT" method="post" novalidate
                 class="validated-form" enctype="multipart/form-data">
+                <!-- title -->
                 <div class="mb-3">
                     <label class="form-label" for="title">Title</label>
                     <input type="text" class="form-control" id="title" name="campground[title]"
                         value="<%= campground.title %>" required>
                     <div class="valid-feedback">Looks good!</div>
                 </div>
+                <!-- location -->
                 <div class="mb-3">
                     <label class="form-label" for="location">Location</label>
                     <input type="text" class="form-control" id="location" name="campground[location]"
                         value="<%= campground.location %>" required>
                 </div>
+                <!-- images -->
                 <div class="mb-3">
                     <label for="image" class="form-label">Add Images</label>
                     <input class="form-control" type="file" id="image" name="image" multiple>
                 </div>
+                <!-- price -->
                 <div class="mb-3">
                     <label class="form-label" for="price">Campground Price</label>
                     <div class="input-group ">
@@ -28,17 +35,20 @@
                         <!-- aria-label="price" aria-describedby="price-label"  이거는 $이거랑 연결하는거 -->
                     </div>
                 </div>
+                <!-- description -->
                 <div class="mb-3">
                     <label class="form-label" for="description">Description</label>
                     <textarea class="form-control" id="description" name="campground[description]"
                         required><%= campground.description %></textarea>
                 </div>
 
-
+                <!-- update button -->
                 <div class="mb-3">
                     <button class="btn btn-primary">Update</button>
                 </div>
             </form>
+
+            <!-- back to campground link-->
             <a href="/campgrounds/<%= campground._id %>">Back to Campground</a>
         </div>
     </div>

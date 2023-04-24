@@ -1,24 +1,28 @@
+<!-- create new campground -->
+
 <% layout('layouts/boilerplate') %>
     <div class="row">
+        <!-- title -->
         <h1 class="text-center">New Campgorund</h1>
         <div class="col-8 offset-2">
+            <!-- create new campground form -->
             <form action="/campgrounds" method="post" novalidate class="validated-form" enctype="multipart/form-data">
+                <!-- new campground title -->
                 <div class="mb-3">
                     <label class="form-label" for="title">Title</label>
                     <input type="text" class="form-control" id="title" name="campground[title]" required>
                 </div>
+                <!-- new campground location -->
                 <div class="mb-3">
                     <label class="form-label" for="location">Location</label>
                     <input type="text" class="form-control" id="location" name="campground[location]" required>
                 </div>
-                <!-- <div class="mb-3">
-                    <label class="form-label" for="image">Image URL</label>
-                    <input type="text" class="form-control" id="image" name="campground[image]" required>
-                </div> -->
+                <!-- new campground images -->
                 <div class="mb-3">
                     <label class="form-label" for="image">Image URL</label>
                     <input type="file" class="form-control" id="image" name="image" multiple required>
                 </div>
+                <!-- new campground price -->
                 <div class="mb-3">
                     <label class="form-label" for="price">Campground Price</label>
                     <div class="input-group ">
@@ -28,14 +32,17 @@
                         <!-- aria-label="price" aria-describedby="price-label"  이거는 $이거랑 연결하는거 -->
                     </div>
                 </div>
+                <!-- new campground description -->
                 <div class="mb-3">
                     <label class="form-label" for="description">Description</label>
                     <textarea class="form-control" id="description" name="campground[description]" required></textarea>
                 </div>
+                <!-- add button -->
                 <div class="mb-3">
                     <button class="btn btn-success">Add</button>
                 </div>
             </form>
+            <!-- go to homepage -->
             <a href="/campgrounds">All Campgrounds</a>
         </div>
     </div>

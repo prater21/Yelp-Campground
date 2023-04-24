@@ -16,12 +16,14 @@ const User = require('./models/user');
 const ExpressError = require('./utils/ExpressError');
 const methodOverride = require('method-override');
 
+//routes
 const campgroundsRoutes = require('./routes/campgrounds');
 const reviewsRoutes = require('./routes/reviews');
 const userRoutes = require('./routes/users');
 
 const dbUrl = process.env.DB_URL || 'mongodb://127.0.0.1:27017/yelp-camp';
 const secret = process.env.SECRET || 'thisissecret!Ineedbettersecret';
+
 //connect mongoose
 mongoose.set('strictQuery', true);
 mongoose.connect(dbUrl, {
@@ -89,17 +91,10 @@ app.use((req, res, next) => {
     next();
 })
 
-app.get('/fakeUser', async (req, res) => {
-    const user = new User({ email: 'colt@gamil.com', username: 'colt' });
-    const newUser = await User.register(user, 'chicken');
-    res.send(newUser);
-})
-
 //routes
 app.use('/', userRoutes);
 app.use('/campgrounds', campgroundsRoutes);
 app.use('/campgrounds/:id/reviews', reviewsRoutes);
-
 
 
 app.get('/', (req, res) => {
