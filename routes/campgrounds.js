@@ -56,7 +56,7 @@ router.put('/:id', isLoggedIn, isAuthor, upload.array('image'), validateCampgron
 })
 
 //delete campground
-router.delete(isLoggedIn, isAuthor, async (req, res) => {
+router.delete("/:id", isLoggedIn, isAuthor, async (req, res) => {
     const { id } = req.params;
     await Campground.findByIdAndDelete(id);
     req.flash('success', 'Successfully deleted campground!');
