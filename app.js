@@ -98,9 +98,8 @@ app.use('/campgrounds/:id/reviews', reviewsRoutes);
 
 
 app.get('/', (req, res) => {
-    res.redirect("/campgrounds");
+    res.render("main");
 })
-
 
 //위에 route랑 매치 안되는거 다 여기로
 app.all('*', (req, res, next) => {

@@ -1,14 +1,15 @@
 <!-- campgrounds home -->
 <% layout('layouts/boilerplate') %>
+    <link rel="stylesheet" href="/stylesheets/index.css">
 
     <!-- title -->
-    <h1>All campgrounds</h1>
+    <h1 class="campgroundsTitle">All campgrounds</h1>
 
     <!-- show campgrounds -->
     <% for(let campground of campgrounds){%>
         <div class="card mb-3">
             <div class="row">
-                <div class="col-md-4">
+                <div class="col-md-4  campgroundThumbnail">
                     <!-- campground image -->
                     <img class="img-fluid" alt="" src="<%= campground.images[0].url %>">
                 </div>

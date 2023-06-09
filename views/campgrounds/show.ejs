@@ -95,6 +95,11 @@
             <textarea class="form-control" disabled id="body" cols="30" rows="2"></textarea>
           </div>
           <button class="btn btn-secondary" disabled>Login</button>
+          <% } else if(currentUser && campground.author.equals(currentUser)) { %>
+            <div class="mb-3">
+              <label class="form-label" for="body">Review</label>
+              <textarea class="form-control" disabled id="body" cols="30" rows="2"></textarea>
+            </div>
           <% } else {%>
             <div class="mb-3">
               <label class="form-label" for="body">Review</label>

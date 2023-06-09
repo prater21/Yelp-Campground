@@ -1,0 +1,45 @@
+.main {
+  background-image: url("../mainImg.jpg");
+  width: 100vw;
+  height: calc(100vh - 56px);
+  object-fit: contain;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center bottom;
+  color: white;
+}
+
+.mainTitle {
+  max-width: 550px;
+  min-width: 100%;
+  margin: auto;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 80%;
+}
+
+.mainTitle h1 {
+  font-size: 4rem;
+}
+
+.mainTitle p {
+  margin: 0;
+}
+
+.mainTitle button {
+  width: 200px;
+  margin: 20px auto;
+  border: 1px solid white;
+  border-radius: 5px;
+  padding: 5px;
+  font-weight: 500;
+  box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.75);
+}
+
+.mainTitle button:hover {
+  background-color: gray;
+  border: 1px solid gray;
+  color: white;
+}
