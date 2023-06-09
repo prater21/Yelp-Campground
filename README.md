@@ -2,7 +2,7 @@
 
 Project with Udemy The Web Developer Bootcamp 2023
 
-[__>>LIVE DEMO__](https://yelp-campground-ic3l.onrender.com/campgrounds) 
+[__>>LIVE DEMO__](https://yelp-campground-ic3l.onrender.com/) 
 ###### takes some time to wake up the server
 
 Test User
