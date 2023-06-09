@@ -12,9 +12,9 @@ Test User
 
 <img width="60%" alt="image (4)" src="https://github.com/prater21/Yelp-Campground/assets/126800695/3955c6d0-4e8a-4529-a891-f286a1f6a22c"> 
 
-<img width="500" height="350" alt="image (4)" src="https://github.com/prater21/Yelp-Campground/assets/126800695/2be20fc5-98aa-4248-be8d-010b47232c4e">
+<img width="48%" alt="image (4)" src="https://github.com/prater21/Yelp-Campground/assets/126800695/2be20fc5-98aa-4248-be8d-010b47232c4e">
 
-<img width="500" height="350"  alt="image (4)" src="https://github.com/prater21/Yelp-Campground/assets/126800695/4b6a7341-65e1-4328-a9ea-60e5a7c0d7e6">
+<img width="50%"  alt="image (4)" src="https://github.com/prater21/Yelp-Campground/assets/126800695/4b6a7341-65e1-4328-a9ea-60e5a7c0d7e6">
 
 
 ## Features
