@@ -2,13 +2,13 @@
 
 Project with Udemy The Web Developer Bootcamp 2023
 
-[__>>LIVE DEMO__](https://yelp-campground-ic3l.onrender.com/) 
+<!-- [__>>LIVE DEMO__](https://yelp-campground-ic3l.onrender.com/) 
 ###### takes some time to wake up the server
 
 Test User
 
     Username : test
-    Password : test1234
+    Password : test1234 -->
 
 <img width="60%" alt="image (4)" src="https://github.com/prater21/Yelp-Campground/assets/126800695/3955c6d0-4e8a-4529-a891-f286a1f6a22c"> 
 
@@ -70,7 +70,7 @@ Test User
 - [Bootstrap](https://getbootstrap.com/)
 
 ### Backend
-- [express](https://www.npmjs.com/package/express)
+- [Node.js](https://nodejs.org/en)
 - [MongoDB Atlas](https://www.mongodb.com/atlas)
 - [mongoose](https://mongoosejs.com/)
 - [passport](https://www.npmjs.com/package/passport)
